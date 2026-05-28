@@ -1,0 +1,367 @@
+.config-editor {
+  padding: var(--sp-6) var(--sp-8);
+  overflow-y: auto;
+  height: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.config-editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-6);
+}
+
+.config-editor-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --- Tab Toggle --- */
+.config-tabs {
+  display: flex;
+  background: var(--bg-base);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  padding: 2px;
+  gap: 2px;
+}
+
+.config-tab {
+  padding: var(--sp-1) var(--sp-4);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.config-tab:hover {
+  color: var(--text-primary);
+}
+
+.config-tab--active {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Section Card --- */
+.config-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  margin-bottom: var(--sp-4);
+  transition: border-color var(--transition-fast);
+}
+
+.config-section:hover {
+  border-color: var(--border-default);
+}
+
+.config-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.config-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.config-section-title svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+/* --- Form Fields --- */
+.config-field {
+  margin-bottom: var(--sp-4);
+}
+
+.config-field:last-child {
+  margin-bottom: 0;
+}
+
+.config-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--sp-1);
+}
+
+.config-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.config-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 var(--sp-3);
+  background: var(--bg-base);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.config-input::placeholder {
+  color: var(--text-tertiary);
+  font-family: var(--font-ui);
+}
+
+.config-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.config-input--number {
+  width: 120px;
+}
+
+/* Key input with action buttons */
+.config-key-actions {
+  position: absolute;
+  right: 4px;
+  display: flex;
+  gap: 2px;
+}
+
+.config-key-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.config-key-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.config-key-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Peer Controls --- */
+.config-peer-actions {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.config-peer-btn {
+  height: 28px;
+  padding: 0 var(--sp-3);
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  transition: all var(--transition-fast);
+}
+
+.config-peer-btn--add {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  background: var(--accent-muted);
+}
+
+.config-peer-btn--add:hover {
+  background: var(--accent);
+  color: var(--bg-base);
+}
+
+.config-peer-btn--remove {
+  color: var(--danger);
+  border: 1px solid transparent;
+}
+
+.config-peer-btn--remove:hover {
+  border-color: var(--danger);
+  background: var(--status-disconnected-bg);
+}
+
+.config-peer-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --- Generate Keys Button --- */
+.config-generate-btn {
+  height: 32px;
+  padding: 0 var(--sp-4);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-muted);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  transition: all var(--transition-fast);
+}
+
+.config-generate-btn:hover {
+  background: var(--accent);
+  color: var(--bg-base);
+  border-color: var(--accent);
+}
+
+.config-generate-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* --- Raw Mode (Textarea) --- */
+.config-raw-wrap {
+  position: relative;
+  display: flex;
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-base);
+  transition: border-color var(--transition-fast);
+}
+
+.config-raw-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.config-raw-lines {
+  padding: var(--sp-4) var(--sp-3);
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-tertiary);
+  text-align: right;
+  user-select: none;
+  min-width: 40px;
+}
+
+.config-raw-textarea {
+  flex: 1;
+  padding: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: transparent;
+  resize: none;
+  min-height: 300px;
+  tab-size: 4;
+}
+
+.config-raw-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* --- Footer Buttons --- */
+.config-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border-muted);
+}
+
+.config-footer-btn {
+  height: 40px;
+  padding: 0 var(--sp-6);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  transition: all var(--transition-fast);
+}
+
+.config-footer-btn:active {
+  transform: scale(0.97);
+}
+
+.config-footer-btn--save {
+  background: var(--accent);
+  color: var(--bg-base);
+}
+
+.config-footer-btn--save:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow);
+}
+
+.config-footer-btn--cancel {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+}
+
+.config-footer-btn--cancel:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+/* Name input at top */
+.config-name-field {
+  margin-bottom: var(--sp-5);
+}
+
+.config-name-input {
+  width: 280px;
+  height: 40px;
+  padding: 0 var(--sp-4);
+  background: var(--bg-base);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.config-name-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+
+.config-name-input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* inline row for optional number fields */
+.config-row {
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.config-row .config-field {
+  flex: 1;
+}

@@ -1,0 +1,227 @@
+.status-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--sp-10) var(--sp-8) var(--sp-6);
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* --- Shield Icon --- */
+.status-shield {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--sp-6);
+  transition: all var(--transition-slow);
+}
+
+.status-shield--connected {
+  color: var(--status-connected);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.status-shield--connecting {
+  color: var(--status-connecting);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-shield--disconnected {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* --- Tunnel Name --- */
+.status-tunnel-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-3);
+  letter-spacing: -0.02em;
+}
+
+/* --- Badge --- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) var(--sp-4);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: var(--sp-8);
+  transition: all var(--transition-base);
+}
+
+.status-badge--connected {
+  background: var(--status-connected-bg);
+  color: var(--status-connected);
+  border: 1px solid rgba(63, 185, 80, 0.2);
+}
+
+.status-badge--connecting {
+  background: var(--status-connecting-bg);
+  color: var(--status-connecting);
+  border: 1px solid rgba(210, 153, 34, 0.2);
+}
+
+.status-badge--disconnected {
+  background: var(--status-disconnected-bg);
+  color: var(--status-disconnected);
+  border: 1px solid rgba(248, 81, 73, 0.2);
+}
+
+.status-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-badge--connected .status-badge-dot {
+  box-shadow: 0 0 4px currentColor;
+}
+
+/* --- Connect/Disconnect Button --- */
+.status-action-btn {
+  width: 100%;
+  max-width: 320px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  transition: all var(--transition-fast);
+  margin-bottom: var(--sp-8);
+}
+
+.status-action-btn:active {
+  transform: scale(0.97);
+}
+
+.status-action-btn--connect {
+  background: var(--accent);
+  color: var(--bg-base);
+}
+
+.status-action-btn--connect:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow), var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.status-action-btn--connect:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.status-action-btn--disconnect {
+  background: transparent;
+  color: var(--status-disconnected);
+  border: 1px solid var(--status-disconnected);
+}
+
+.status-action-btn--disconnect:hover {
+  background: var(--status-disconnected-bg);
+  box-shadow: 0 0 20px rgba(248, 81, 73, 0.15);
+  transform: translateY(-1px);
+}
+
+.status-action-btn--disconnect:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.status-action-btn--connecting {
+  background: var(--bg-elevated);
+  color: var(--status-connecting);
+  border: 1px solid var(--border-default);
+  cursor: wait;
+}
+
+.status-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* --- Info Grid --- */
+.status-info-grid {
+  width: 100%;
+  max-width: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  animation: slideUp 0.4s ease-out 0.15s both;
+}
+
+.status-info-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-3) var(--sp-4);
+  transition: border-color var(--transition-fast);
+}
+
+.status-info-item:hover {
+  border-color: var(--border-default);
+}
+
+.status-info-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-1);
+}
+
+.status-info-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+/* --- Edit / Delete actions --- */
+.status-secondary-actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+  width: 100%;
+  max-width: 320px;
+}
+
+.status-secondary-btn {
+  flex: 1;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.status-secondary-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-default);
+  color: var(--text-primary);
+}
+
+.status-secondary-btn--danger:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: var(--status-disconnected-bg);
+}
+
+.status-secondary-btn svg {
+  width: 14px;
+  height: 14px;
+}

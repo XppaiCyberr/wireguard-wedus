@@ -1,0 +1,175 @@
+.stats-panel {
+  padding: var(--sp-6) var(--sp-8);
+  animation: slideUp 0.4s ease-out 0.2s both;
+}
+
+/* --- Stats Cards Grid --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+@media (max-width: 800px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.stats-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.stats-card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.stats-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-2);
+}
+
+.stats-card-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.stats-card-icon--download {
+  color: var(--status-connected);
+}
+
+.stats-card-icon--upload {
+  color: #F97583;
+}
+
+.stats-card-icon--handshake {
+  color: var(--accent);
+}
+
+.stats-card-icon--duration {
+  color: var(--info);
+}
+
+.stats-card-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.stats-card-value {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.stats-card-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+/* Handshake health dot */
+.stats-health-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-left: var(--sp-2);
+  vertical-align: middle;
+}
+
+.stats-health-dot--good {
+  background: var(--status-connected);
+  box-shadow: 0 0 4px var(--status-connected);
+}
+
+.stats-health-dot--warn {
+  background: var(--status-connecting);
+  box-shadow: 0 0 4px var(--status-connecting);
+}
+
+.stats-health-dot--bad {
+  background: var(--status-disconnected);
+  box-shadow: 0 0 4px var(--status-disconnected);
+}
+
+/* --- Traffic Chart --- */
+.stats-chart-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  transition: border-color var(--transition-fast);
+}
+
+.stats-chart-container:hover {
+  border-color: var(--border-default);
+}
+
+.stats-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+
+.stats-chart-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.stats-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.stats-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.stats-legend-line {
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.stats-legend-line--download {
+  background: var(--status-connected);
+}
+
+.stats-legend-line--upload {
+  background: #F97583;
+  background: repeating-linear-gradient(
+    90deg,
+    #F97583 0px,
+    #F97583 4px,
+    transparent 4px,
+    transparent 7px
+  );
+}
+
+.stats-chart-canvas {
+  width: 100%;
+  height: 140px;
+  display: block;
+  border-radius: var(--radius-sm);
+}
