@@ -41,6 +41,13 @@ export function useTunnels(): UseTunnelsReturn {
     loadTunnels();
   }, [loadTunnels]);
 
+  // Auto-select the first tunnel on startup
+  useEffect(() => {
+    if (tunnels.length > 0 && selectedTunnel === null) {
+      setSelectedTunnel(tunnels[0].name);
+    }
+  }, [tunnels, selectedTunnel]);
+
   // Auto-refresh every 3 seconds
   useEffect(() => {
     intervalRef.current = setInterval(loadTunnels, 3000);
@@ -83,16 +90,28 @@ export function useTunnels(): UseTunnelsReturn {
 
   const connectTunnel = useCallback(
     async (name: string) => {
-      await api.connectTunnel(name);
-      await loadTunnels();
+      setTunnels((prev) =>
+        prev.map((t) => (t.name === name ? { ...t, status: 'Connecting' } : t))
+      );
+      try {
+        await api.connectTunnel(name);
+      } finally {
+        await loadTunnels();
+      }
     },
     [loadTunnels]
   );
 
   const disconnectTunnel = useCallback(
     async (name: string) => {
-      await api.disconnectTunnel(name);
-      await loadTunnels();
+      setTunnels((prev) =>
+        prev.map((t) => (t.name === name ? { ...t, status: 'Connecting' } : t))
+      );
+      try {
+        await api.disconnectTunnel(name);
+      } finally {
+        await loadTunnels();
+      }
     },
     [loadTunnels]
   );
