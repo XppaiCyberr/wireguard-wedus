@@ -4,18 +4,18 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- 🛡️ **Seamless Tunnel Operations**: Import, create, update, and delete WireGuard tunnels easily through visual forms or direct raw configuration edits.
-- ⚡ **Real-time Interface Analytics**: Visual Native Canvas-based speedometer and bandwidth throughput graph showing transfer rx/tx and connection duration dynamically.
-- 💼 **Windows Service Integration**: Automatically installs tunnels as elevated Windows services (`WireGuardTunnel$`) so they remain connected even after the GUI closes.
-- 🎨 **Premium Aesthetics**: Pure CSS glassmorphism, responsive title bars, and glowing interactive cards.
-- 🤫 **Silent Executions**: All Windows CLI calls (`wg.exe`, `sc.exe`, `net.exe`) are handled silently behind the scenes with suppressed shell windows.
-- 📥 **Config Import & Export**: Import your existing `.conf` configuration files instantly and export tunnels securely.
+- **Seamless Tunnel Operations**: Import, create, update, and delete WireGuard tunnels easily through visual forms or direct raw configuration edits.
+- **Real-time Interface Analytics**: Visual Native Canvas-based speedometer and bandwidth throughput graph showing transfer rx/tx and connection duration dynamically.
+- **Windows Service Integration**: Automatically installs tunnels as elevated Windows services (`WireGuardTunnel$`) so they remain connected even after the GUI closes.
+- **Premium Aesthetics**: Pure CSS glassmorphism, responsive title bars, and glowing interactive cards.
+- **Silent Executions**: All Windows CLI calls (`wg.exe`, `sc.exe`, `net.exe`) are handled silently behind the scenes with suppressed shell windows.
+- **Config Import & Export**: Import your existing `.conf` configuration files instantly and export tunnels securely.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend**: Rust, Tauri v2
 - **Frontend**: React 19, TypeScript, Vite
@@ -24,7 +24,7 @@
 
 ---
 
-## 📥 Prerequisites
+## Prerequisites
 
 To run or build the application, make sure you have the following installed:
 1. **WireGuard for Windows**: The app leverages the official `wireguard.exe` and `wg.exe` command-line interfaces.
@@ -33,7 +33,7 @@ To run or build the application, make sure you have the following installed:
 
 ---
 
-## 🚀 Running in Development
+## Running in Development
 
 Since the app modifies Windows Network Interfaces and Services, **your terminal must be run as Administrator**.
 
@@ -53,7 +53,7 @@ Since the app modifies Windows Network Interfaces and Services, **your terminal 
 
 ---
 
-## 📦 Building Production Installers
+## Building Production Installers
 
 To package the application into standalone Windows installers:
 ```bash
@@ -65,6 +65,6 @@ The build system will output:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
