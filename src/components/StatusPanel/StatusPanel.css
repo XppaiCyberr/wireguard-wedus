@@ -225,3 +225,113 @@
   width: 14px;
   height: 14px;
 }
+
+/* --- Console Log Simulator --- */
+.status-console {
+  width: 100%;
+  max-width: 400px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  margin-bottom: var(--sp-6);
+  font-family: var(--font-mono);
+  animation: slideUp 0.3s ease-out;
+}
+
+.status-console-header {
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  padding: var(--sp-2) var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1.5);
+}
+
+.status-console-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-console-dot--red {
+  background: #ff5f56;
+}
+
+.status-console-dot--yellow {
+  background: #ffbd2e;
+}
+
+.status-console-dot--green {
+  background: #27c93f;
+}
+
+.status-console-title {
+  color: #8b949e;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: var(--sp-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-console-body {
+  padding: var(--sp-4);
+  height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.status-console-line {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #c9d1d9;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.status-console-tag {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.status-console-success {
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.status-console-line--active {
+  color: #8b949e;
+}
+
+.status-console-cursor {
+  display: inline-block;
+  width: 6px;
+  height: 13px;
+  background: var(--accent);
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+.status-console-line--error {
+  color: #f85149;
+  background: rgba(248, 81, 73, 0.1);
+  padding: var(--sp-2);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid #f85149;
+  margin-top: var(--sp-2);
+}
+
+.status-console-tag--error {
+  color: #f85149 !important;
+}
+
+@keyframes blink {
+  from, to { background: transparent }
+  50% { background: var(--accent) }
+}

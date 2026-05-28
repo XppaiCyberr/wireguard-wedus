@@ -23,6 +23,8 @@ export default function StatusPanel({
   const statusKey = getStatusKey(tunnel.status);
   const isConnected = tunnel.status === 'Connected';
   const isConnecting = tunnel.status === 'Connecting';
+  const isError = typeof tunnel.status === 'object' && 'Error' in tunnel.status;
+  const errorMessage = isError ? (tunnel.status as { Error: string }).Error : '';
 
   // Live timer
   const [elapsed, setElapsed] = useState(0);
@@ -90,6 +92,48 @@ export default function StatusPanel({
           </svg>
           Connect
         </button>
+      )}
+
+      {/* Console log window */}
+      {(isConnecting || isError) && (
+        <div className="status-console">
+          <div className="status-console-header">
+            <span className="status-console-dot status-console-dot--red" />
+            <span className="status-console-dot status-console-dot--yellow" />
+            <span className="status-console-dot status-console-dot--green" />
+            <span className="status-console-title">Connection Console</span>
+          </div>
+          <div className="status-console-body">
+            <div className="status-console-line">
+              <span className="status-console-tag">[SYSTEM]</span> Initializing tunnel service for "{tunnel.name}"...
+            </div>
+            <div className="status-console-line">
+              <span className="status-console-tag">[SYSTEM]</span> Checking administrative UAC credentials... <span className="status-console-success">OK</span>
+            </div>
+            <div className="status-console-line">
+              <span className="status-console-tag">[SYSTEM]</span> Verifying WireGuard configurations... <span className="status-console-success">OK</span>
+            </div>
+            <div className="status-console-line">
+              <span className="status-console-tag">[SYSTEM]</span> Querying service state "WireGuardTunnel${tunnel.name}"...
+            </div>
+            {isConnecting && (
+              <div className="status-console-line status-console-line--active">
+                <span className="status-console-tag">[SYSTEM]</span> net start WireGuardTunnel${tunnel.name} in progress...
+                <span className="status-console-cursor" />
+              </div>
+            )}
+            {isError && (
+              <>
+                <div className="status-console-line">
+                  <span className="status-console-tag">[SYSTEM]</span> net start WireGuardTunnel${tunnel.name} failed.
+                </div>
+                <div className="status-console-line status-console-line--error">
+                  <span className="status-console-tag status-console-tag--error">[ERROR]</span> {errorMessage || "Access denied or interface already exists"}
+                </div>
+              </>
+            )}
+          </div>
+        </div>
       )}
 
       {/* Info Grid (shown when connected) */}
